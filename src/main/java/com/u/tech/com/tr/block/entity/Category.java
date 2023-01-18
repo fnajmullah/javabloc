@@ -10,7 +10,6 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer pid;
     private String name;
     private String description;
     private String createdAt;
@@ -28,13 +27,6 @@ public class Category {
         this.id = id;
     }
 
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
 
     public String getName() {
         return name;

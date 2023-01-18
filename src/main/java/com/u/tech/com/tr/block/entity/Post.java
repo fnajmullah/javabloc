@@ -13,16 +13,32 @@ public class Post {
     private Integer uid;
     private String title;
     private String description;
-
-//    private Integer categoryid;
-//    private Integer countviews;
-
+    private Integer categoryid;
+    private Integer countviews;
     private String createdAt;
     private String updatedAt;
     private String deletedAt;
     public Post() {
 
     }
+
+    public Integer getCategoryid() {
+        return categoryid;
+    }
+
+    public void setCategoryid(Integer categoryid) {
+        this.categoryid = categoryid;
+    }
+
+    public Integer getCountviews() {
+        return countviews;
+    }
+
+    public void setCountviews(Integer countviews) {
+        this.countviews = countviews;
+    }
+
+
 
     public Integer getUid() {
         return uid;

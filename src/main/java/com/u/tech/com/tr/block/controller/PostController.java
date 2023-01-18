@@ -17,12 +17,12 @@ import com.u.tech.com.tr.block.service.PostService;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/post")
 public class PostController {
     @Autowired
     private PostService postService;
 
-    @GetMapping("/posts")
+    @GetMapping("/all")
     public List<Post> getPost() {
         return postService.getPost();
     }
@@ -32,7 +32,7 @@ public class PostController {
         postService.save(post);
         return post;
     }
-    @GetMapping("/post/{id}")
+    @GetMapping("/get/{id}")
     public Post getPostById(@PathVariable Integer id) {
         Post post= postService.findById(id);
         return post;
@@ -51,6 +51,8 @@ public class PostController {
        post.setUid(postDetail.getUid());
        post.setTitle(postDetail.getTitle());
        post.setDescription(postDetail.getDescription());
+       post.setCategoryid(postDetail.getCategoryid());
+       post.setCountviews(postDetail.getCountviews());
        post.setUpdatedAt(LocalDate.now().toString());
        postService.save(post);
         return post;

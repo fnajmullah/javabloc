@@ -16,7 +16,7 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/categories")
+    @GetMapping("/all")
     public List<Category> getCategory() {
         return categoryService.getCategory();
     }
@@ -26,7 +26,7 @@ public class CategoryController {
         categoryService.save(category);
         return category;
     }
-    @GetMapping("/category/{id}")
+    @GetMapping("/get/{id}")
     public Category getCategoryById(@PathVariable Integer id) {
         Category category= categoryService.findById(id);
         return category;
@@ -42,7 +42,6 @@ public class CategoryController {
     @PutMapping("/update/{id}")
     public Category updateCategory(@PathVariable Integer id, @RequestBody Category categoryDetail) {
         Category category = categoryService.findById(id);
-        category.setPid(categoryDetail.getPid());
         category.setName(categoryDetail.getName());
         category.setDescription(categoryDetail.getDescription());
         category.setUpdatedAt(LocalDate.now().toString());
